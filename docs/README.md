@@ -1,6 +1,6 @@
 ---
 home: true
-# heroImage: /logo.png
+heroImage: /logo.png
 actionText: 开始使用 →
 actionLink: /guide/
 features:

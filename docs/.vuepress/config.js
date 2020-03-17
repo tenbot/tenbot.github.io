@@ -7,6 +7,70 @@ module.exports = {
     },
   },
 
+  head: [
+    ['link', { rel: 'icon', href: `/favicon.ico` }],
+    // <link rel="manifest" href="/manifest.json">
+    ['link', { rel: 'manifest', href: `/manifest.json` }],
+    // <meta name="theme-color" content="#0082ef">
+    ['meta', { name: 'theme-color', content: '#0082ef' }],
+    // <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+    [
+      'link',
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '32x32',
+        href: '/assets/icons/favicon-32x32.png',
+      },
+    ],
+    // <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+    [
+      'link',
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '16x16',
+        href: '/assets/icons/favicon-16x16.png',
+      },
+    ],
+    // <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
+    [
+      'link',
+      {
+        rel: 'apple-touch-icon',
+        sizes: '180x180',
+        href: '/assets/icons/apple-touch-icon.png',
+      },
+    ],
+    // <meta name="application-name" content="tenbot">
+    ['meta', { name: 'application-name', content: 'tenbot' }],
+    // <meta name="apple-mobile-web-app-title" content="tenbot">
+    ['meta', { name: 'apple-mobile-web-app-title', content: 'tenbot' }],
+    ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
+    [
+      'meta',
+      { name: 'apple-mobile-web-app-status-bar-style', content: 'black' },
+    ],
+    // <meta name="msapplication-TileColor" content="#0082ef">
+    ['meta', { name: 'msapplication-TileColor', content: '#0082ef' }],
+    [
+      'meta',
+      {
+        name: 'msapplication-TileImage',
+        content: '/assets/icons/mstile-150x150.png',
+      },
+    ],
+    // <link rel="mask-icon" href="/assets/icons/safari-pinned-tab.svg" color="#0082ef">
+    [
+      'link',
+      {
+        rel: 'mask-icon',
+        href: '/assets/icons/safari-pinned-tab.svg',
+        color: '#0082ef',
+      },
+    ],
+  ],
+
   themeConfig: {
     repo: 'tenbot/tenbot.github.io',
 

@@ -2,7 +2,8 @@
 
 > This is the documentation repository of [tenbot](https://github.com/tenbot/tenbot)
 
-https://tenbot.github.io
+- Project Repository: https://github.com/tenbot/tenbot
+- Documentation Site: https://tenbot.github.io
 
 ## License
 
