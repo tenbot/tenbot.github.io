@@ -72,10 +72,12 @@ module.exports = {
   ],
 
   themeConfig: {
-    repo: 'tenbot/tenbot.github.io',
+    repo: 'tenbot/tenbot',
 
     editLinks: true,
 
+    docsRepo: 'tenbot/tenbot.github.io',
+    docsBranch: 'src',
     docsDir: 'docs',
 
     locales: {
