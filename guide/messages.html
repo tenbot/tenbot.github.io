@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>消息接收和发送 | Tenbot</title>
+    <meta name="description" content="创建你的企业微信机器人">
+    <meta name="generator" content="VuePress 1.3.1">
+    <link rel="icon" href="/favicon.ico">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#0082ef">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
+  <meta name="application-name" content="tenbot">
+  <meta name="apple-mobile-web-app-title" content="tenbot">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="msapplication-TileColor" content="#0082ef">
+  <meta name="msapplication-TileImage" content="/assets/icons/mstile-150x150.png">
+  <link rel="mask-icon" href="/assets/icons/safari-pinned-tab.svg" color="#0082ef">
+    
+    <link rel="preload" href="/assets/css/0.styles.06984f3d.css" as="style"><link rel="preload" href="/assets/js/app.4c861c4d.js" as="script"><link rel="preload" href="/assets/js/2.3a92ba10.js" as="script"><link rel="preload" href="/assets/js/8.a2fac26f.js" as="script"><link rel="preload" href="/assets/js/3.36f77397.js" as="script"><link rel="prefetch" href="/assets/js/10.f35535a7.js"><link rel="prefetch" href="/assets/js/4.4c24e1cc.js"><link rel="prefetch" href="/assets/js/5.7c40eeda.js"><link rel="prefetch" href="/assets/js/6.790efdf0.js"><link rel="prefetch" href="/assets/js/7.fbfa7d8d.js"><link rel="prefetch" href="/assets/js/9.6aca1718.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.06984f3d.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Tenbot</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/guide/" class="nav-link router-link-active">
+  指南
+</a></div><div class="nav-item"><a href="https://github.com/tenbot/tenbot/blob/main/CHANGELOG.md" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  更新日志
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <a href="https://github.com/tenbot/tenbot" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/guide/" class="nav-link router-link-active">
+  指南
+</a></div><div class="nav-item"><a href="https://github.com/tenbot/tenbot/blob/main/CHANGELOG.md" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  更新日志
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <a href="https://github.com/tenbot/tenbot" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>指南</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/guide/" class="sidebar-link">开始使用</a></li><li><a href="/guide/messages.html" class="active sidebar-link">消息接收和发送</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/guide/messages.html#接收和处理消息" class="sidebar-link">接收和处理消息</a></li><li class="sidebar-sub-header"><a href="/guide/messages.html#发送消息" class="sidebar-link">发送消息</a></li><li class="sidebar-sub-header"><a href="/guide/messages.html#使用示例" class="sidebar-link">使用示例</a></li></ul></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>插件</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/guide/plugins/cron.html" class="sidebar-link">定时任务 / Cron</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="消息接收和发送"><a href="#消息接收和发送" class="header-anchor">#</a> 消息接收和发送</h1> <h2 id="接收和处理消息"><a href="#接收和处理消息" class="header-anchor">#</a> 接收和处理消息</h2> <p>企业微信机器人目前可以接收以下类型的消息：</p> <ul><li>文字消息</li> <li>图片消息（仅限单人聊天）</li> <li>事件消息</li> <li>附件消息</li></ul> <p>Tenbot 可以对不同类型的消息设定不同的处理方法。</p> <h3 id="接收消息"><a href="#接收消息" class="header-anchor">#</a> 接收消息</h3> <ul><li>文字消息: <code>bot.onText(handler)</code></li> <li>图片消息: <code>bot.onImage(handler)</code></li> <li>事件消息: <code>bot.onEvent(handler)</code></li> <li>附件消息: <code>bot.onAttachment(handler)</code></li> <li>默认处理器: <code>bot.onMessage(handler)</code></li></ul> <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>如果当前消息没有配置对应类型的处理器，则会进入默认处理器。</p></div> <h3 id="消息处理器"><a href="#消息处理器" class="header-anchor">#</a> 消息处理器</h3> <p>消息处理器是一个 callback 函数，它接收两个参数：</p> <ul><li><code>message</code>: 来自企业微信的消息，不同的消息类型结构不同</li> <li><code>context</code>: 消息上下文，使用 <code>context</code> 上的方法可以快速生成和回复消息</li></ul> <h2 id="发送消息"><a href="#发送消息" class="header-anchor">#</a> 发送消息</h2> <p>企业微信机器人目前可以发送以下类型的消息：</p> <ul><li>文字消息</li> <li>Markdown 消息 （可以带附件）</li> <li>图片消息</li> <li>图文消息</li></ul> <p>Tenbot 提供了 Context 对象，可以快速发送不同类型的消息。</p> <h3 id="context"><a href="#context" class="header-anchor">#</a> Context</h3> <p>使用 Context 中的方法，可以向企业微信发送消息。</p> <ul><li>文字消息: <code>context.sendText(options)</code></li> <li>Markdown 消息: <code>context.sendMarkdown(options)</code></li> <li>图片消息:
+<ul><li><code>context.sendImage(options)</code></li> <li><code>context.sendImageFromUrl(url, options)</code></li></ul></li> <li>图文消息: <code>context.sendNews(options)</code></li></ul> <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>机器人 <code>bot</code> 对象，以及消息处理器中的 <code>context</code> 对象，都是一个 Context ，它们发送消息的接口完全一致，唯一的区别是：</p> <p>如果不指定 <code>chatId</code> ， <code>bot</code> 默认向 <strong>所有群聊</strong> 发送消息， <code>context</code> 默认只向当前聊天回复消息。</p></div> <h2 id="使用示例"><a href="#使用示例" class="header-anchor">#</a> 使用示例</h2> <h3 id="被动回复消息"><a href="#被动回复消息" class="header-anchor">#</a> 被动回复消息</h3> <div class="language-ts extra-class"><pre class="language-ts"><code>bot<span class="token punctuation">.</span><span class="token function">onText</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter">message<span class="token punctuation">,</span> context</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 获取文字消息的内容，去掉 @bot-name 部分</span>
+  <span class="token keyword">const</span> text <span class="token operator">=</span> message<span class="token punctuation">.</span>text<span class="token punctuation">.</span>content<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">@</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>context<span class="token punctuation">.</span>bot<span class="token punctuation">.</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// 回复一个 Markdown 消息</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>text <span class="token operator">===</span> <span class="token string">'markdown'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">await</span> context<span class="token punctuation">.</span><span class="token function">sendMarkdown</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      content<span class="token operator">:</span> <span class="token string">'&gt; 这是一个 Markdown 消息'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// 回复一个带附件的 Markdown 消息</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>text <span class="token operator">===</span> <span class="token string">'attachment'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">await</span> context<span class="token punctuation">.</span><span class="token function">sendMarkdown</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      content<span class="token operator">:</span> <span class="token string">'&gt; 这是一个带附件的 Markdown 消息'</span><span class="token punctuation">,</span>
+      attachments<span class="token operator">:</span> <span class="token punctuation">[</span>
+        context<span class="token punctuation">.</span><span class="token function">createAttachment</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+          callbackId<span class="token operator">:</span> <span class="token string">'test'</span><span class="token punctuation">,</span>
+          actions<span class="token operator">:</span> <span class="token punctuation">[</span>
+            context<span class="token punctuation">.</span><span class="token function">createAttachmentActionButton</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+              name<span class="token operator">:</span> <span class="token string">'button_1'</span><span class="token punctuation">,</span>
+              text<span class="token operator">:</span> <span class="token string">'有事'</span><span class="token punctuation">,</span>
+              <span class="token keyword">type</span><span class="token operator">:</span> <span class="token string">'button'</span><span class="token punctuation">,</span>
+              value<span class="token operator">:</span> <span class="token string">'yes'</span><span class="token punctuation">,</span>
+              replaceText<span class="token operator">:</span> <span class="token string">'有事就说'</span><span class="token punctuation">,</span>
+              borderColor<span class="token operator">:</span> <span class="token string">'2EAB49'</span><span class="token punctuation">,</span>
+              textColor<span class="token operator">:</span> <span class="token string">'2EAB49'</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            context<span class="token punctuation">.</span><span class="token function">createAttachmentActionButton</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+              name<span class="token operator">:</span> <span class="token string">'button_2'</span><span class="token punctuation">,</span>
+              text<span class="token operator">:</span> <span class="token string">'没事'</span><span class="token punctuation">,</span>
+              <span class="token keyword">type</span><span class="token operator">:</span> <span class="token string">'button'</span><span class="token punctuation">,</span>
+              value<span class="token operator">:</span> <span class="token string">'no'</span><span class="token punctuation">,</span>
+              replaceText<span class="token operator">:</span> <span class="token string">'没事走开'</span><span class="token punctuation">,</span>
+              borderColor<span class="token operator">:</span> <span class="token string">'2EAB49'</span><span class="token punctuation">,</span>
+              textColor<span class="token operator">:</span> <span class="token string">'2EAB49'</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+          <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// 回复一个图片</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>text <span class="token operator">===</span> <span class="token string">'图片'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">await</span> context<span class="token punctuation">.</span><span class="token function">sendImageFromUrl</span><span class="token punctuation">(</span>
+      <span class="token string">'https://wwcdn.weixin.qq.com/node/wwnl/wwnl/style/images/officialImages$e8e6cbe6.png'</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// 回复一条图文</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>text <span class="token operator">===</span> <span class="token string">'图文'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">await</span> context<span class="token punctuation">.</span><span class="token function">sendNews</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      articles<span class="token operator">:</span> <span class="token punctuation">[</span>
+        context<span class="token punctuation">.</span><span class="token function">createArticle</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+          title<span class="token operator">:</span> <span class="token string">'企业微信'</span><span class="token punctuation">,</span>
+          description<span class="token operator">:</span> <span class="token string">'欢迎使用企业微信'</span><span class="token punctuation">,</span>
+          url<span class="token operator">:</span> <span class="token string">'https://work.weixin.qq.com/'</span><span class="token punctuation">,</span>
+          picurl<span class="token operator">:</span>
+            <span class="token string">'https://wwcdn.weixin.qq.com/node/wwnl/wwnl/style/images/officialImages$e8e6cbe6.png'</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// 默认回复当前群聊 chatId</span>
+  <span class="token keyword">await</span> context<span class="token punctuation">.</span><span class="token function">sendText</span><span class="token punctuation">(</span><span class="token punctuation">{</span> content<span class="token operator">:</span> message<span class="token punctuation">.</span>chatId <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h3 id="主动发送消息"><a href="#主动发送消息" class="header-anchor">#</a> 主动发送消息</h3> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token comment">// 向所有群聊主动发送消息</span>
+bot<span class="token punctuation">.</span><span class="token function">sendText</span><span class="token punctuation">(</span><span class="token punctuation">{</span> content<span class="token operator">:</span> <span class="token string">'这是一条主动发送的文字消息'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 向某个群聊主动发送消息</span>
+bot<span class="token punctuation">.</span><span class="token function">sendText</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment">// 目标群聊的 chatId</span>
+  chatId<span class="token operator">:</span> <span class="token string">'xxx'</span><span class="token punctuation">,</span>
+  content<span class="token operator">:</span> <span class="token string">'这是一条主动发送的文字消息'</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/tenbot/tenbot.github.io/edit/src/docs/guide/messages.md" target="_blank" rel="noopener noreferrer">在 GitHub 上编辑此页</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">4/10/2021, 10:31:16 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/guide/" class="prev router-link-active">
+        开始使用
+      </a></span> <span class="next"><a href="/guide/plugins/cron.html">
+        定时任务 / Cron
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/assets/js/app.4c861c4d.js" defer></script><script src="/assets/js/2.3a92ba10.js" defer></script><script src="/assets/js/8.a2fac26f.js" defer></script><script src="/assets/js/3.36f77397.js" defer></script>
+  </body>
+</html>
