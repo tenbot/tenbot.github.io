@@ -93,7 +93,7 @@ module.exports = {
           },
           {
             text: '更新日志',
-            link: 'https://github.com/tenbot/tenbot/blob/master/CHANGELOG.md',
+            link: 'https://github.com/tenbot/tenbot/blob/main/CHANGELOG.md',
           },
         ],
         sidebar: {

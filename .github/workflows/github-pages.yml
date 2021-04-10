@@ -2,9 +2,9 @@ name: Github Pages
 
 on:
   push:
-    branches: [ src ]
+    branches: [ main ]
   pull_request:
-    branches: [ src ]
+    branches: [ main ]
 
 jobs:
   build:
@@ -21,7 +21,7 @@ jobs:
     - name: GitHub Pages
       uses: crazy-max/ghaction-github-pages@v1.3.0
       with:
-        target_branch: master
+        target_branch: gh-pages
         build_dir: dist
         committer_name: meteorlxy
         committer_email: meteor.lxy@foxmail.com
